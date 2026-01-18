@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Candlestick Pattern Optimizer</title>
+    <link rel="stylesheet" href="styles/theme.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="header">
+        <h2>Candlestick Pattern Optimizer</h2>
+      </div>
+
+      <div id="content">
+        <!-- LEFT: Pattern list -->
+        <div id="patterns"></div>
+
+        <!-- CENTER: Canvas -->
+        <div id="canvas-area">
+          <canvas id="candleCanvas" width="400" height="600"></canvas>
+        </div>
+
+        <!-- RIGHT: Controls + Code -->
+        <div id="controls">
+          <!-- 👇 STATUS MOVED HERE -->
+          <div id="status" style="margin-bottom: 12px; font-weight: bold">
+            Pattern: — | Item —
+          </div>
+
+          <button id="yesBtn">✅ YES</button>
+          <button id="noBtn">❌ NO</button>
+
+          <hr />
+
+          <button id="generateBtn">⚙ Generate Code</button>
+
+          <div id="codeView" style="display: none; margin-top: 15px">
+            <h3>Generated Pine Script</h3>
+            <pre id="codeBlock"></pre>
+            <button id="copyBtn">📋 Copy Code</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>

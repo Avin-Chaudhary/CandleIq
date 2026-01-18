@@ -1,0 +1,120 @@
+/* ---- Global overflow fix ---- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* ✅ removes side scroll */
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* prevent outer scroll */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#header {
+  padding: 10px;
+  background: #222;
+  color: white;
+}
+
+#content {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 60px); /* header height */
+  overflow: hidden;
+}
+
+#patterns {
+  width: 220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#canvas-area {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#controls {
+  width: 20%;
+  border-left: 1px solid #ccc;
+  padding: 10px;
+}
+
+.pattern-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.pattern-item:hover {
+  background: #eee;
+}
+
+.pattern-item.active {
+  background: #007acc;
+  color: white;
+}
+
+#controls button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: #2ecc71;
+  color: white;
+  border: none;
+}
+
+#noBtn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+}
+
+#generateBtn {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  background: #34495e;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#generateBtn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+#codeBlock {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 13px;
+  max-height: 240px;
+  overflow-y: auto;
+  border-radius: 6px;
+}
+
+#status {
+  padding: 8px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
