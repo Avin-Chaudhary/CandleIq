@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require("electron")
+const { autoUpdater } = require("electron-updater")
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -18,7 +19,14 @@ function createWindow() {
   win.loadFile("index.html")
 }
 
-app.whenReady().then(createWindow)
+// ---------------- APP LIFECYCLE ----------------
+
+app.whenReady().then(() => {
+  createWindow()
+
+  // 🔄 CHECK FOR UPDATES (GitHub Releases)
+  autoUpdater.checkForUpdatesAndNotify()
+})
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit()

@@ -1,12 +1,46 @@
 {
   "name": "candleiq",
   "version": "1.0.0",
+  "description": "Confidence-based candlestick pattern engine",
   "main": "main.js",
+  "author": "Your Name",
+  "license": "MIT",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
   "devDependencies": {
-    "electron": "^28.2.0"
+    "electron": "^28.2.0",
+    "electron-builder": "^26.4.0"
+  },
+  "build": {
+    "appId": "com.yourname.candleiq",
+    "productName": "CandleIQ",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Avin-Chaudhary",
+        "repo": "CandleIq"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.7.3"
   }
 }
