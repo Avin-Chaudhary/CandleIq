@@ -1,6 +1,6 @@
 {
   "name": "candleiq",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Confidence-based candlestick pattern engine",
   "main": "main.js",
   "author": "Your Name",
