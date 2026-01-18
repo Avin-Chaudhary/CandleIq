@@ -1,5 +1,6 @@
-const { app, BrowserWindow, Menu } = require("electron")
-const { autoUpdater } = require("electron-updater")
+const { app, BrowserWindow, Menu } = require("electron");
+const { autoUpdater } = require("electron-updater");
+const path = require("path")
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -7,31 +8,32 @@ function createWindow() {
     height: 800,
     minWidth: 1000,
     minHeight: 700,
+    icon: path.join(__dirname, "assets", "icon.ico"),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
-  })
+  });
 
   // 🔥 REMOVE TOP MENU BAR
-  Menu.setApplicationMenu(null)
+  Menu.setApplicationMenu(null);
 
-  win.loadFile("index.html")
+  win.loadFile("index.html");
 }
 
 // ---------------- APP LIFECYCLE ----------------
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
 
   // 🔄 CHECK FOR UPDATES (GitHub Releases)
-  autoUpdater.checkForUpdatesAndNotify()
-})
+  autoUpdater.checkForUpdatesAndNotify();
+});
 
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit()
-})
+  if (process.platform !== "darwin") app.quit();
+});
 
 app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
-})
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
